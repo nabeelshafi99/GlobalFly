@@ -1,0 +1,338 @@
+@import "../../css-config/font.scss";
+@import "../../css-config/mixins.scss";
+@import "../../css-config/color.scss";
+
+// this page title css
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto 20px auto;
+  width: 100%;
+  h2 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 50px;
+    text-align: left;
+    @include md {
+      font-size: 32px;
+    }
+  }
+  h5 {
+    font-size: 12px;
+    display: none;
+    font-weight: 400;
+    line-height: 19.5px;
+    text-align: left;
+    @include md {
+      display: block;
+      font-size: 16px;
+    }
+  }
+
+  .section-title-right {
+    button {
+      width: 100px;
+      height: 35px;
+      font-size: $fs-12;
+      gap: 10px;
+      opacity: 0px;
+      @include md {
+        font-size: $fs-14;
+        width: 149px;
+        height: 40px;
+      }
+    }
+  }
+}
+
+// flow banner css
+.flight-flow-banner {
+  position: relative;
+  z-index: -10;
+  max-width: 100%;
+  .flight-flow-content {
+    max-width: calc(50% - 2px);
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    transform: translateY(-50%);
+    color: $neutrals;
+    text-transform: uppercase;
+    font-family: $font-trade;
+    text-align: start;
+    h1 {
+      font-weight: $fw-semibold;
+      font-size: 18px;
+      @include md {
+        font-size: 40px;
+      }
+    }
+    p {
+      font-size: 10px;
+      font-weight: $fw-medium;
+
+      @include md {
+        font-size: 16px;
+      }
+    }
+  }
+  img {
+    width: 100%;
+    height: 300px;
+    object-position: center 0px;
+    object-fit: cover;
+    @include md {
+      height: 600px;
+    }
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+// section 1 css
+.flight-sec-1 {
+  max-width: calc(100% - 50px);
+  background-color: $neutrals;
+  box-shadow: 0px 4px 16px 0px #8dd3bb26;
+  position: relative;
+  margin: -65px auto auto auto;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  @include md {
+    max-width: calc(100% - 100px);
+    max-height: 280px;
+    margin-top: -150px;
+  }
+  @include xl{
+    max-width: 1400px;
+  }
+  .flight-sec-1-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    gap: 32px;
+    .flight-sec-1-top {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      span {
+        font-size: 20px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        line-height: 50px;
+      }
+    }
+    .flight-sec-1-center {
+      display: flex;
+    }
+    .flight-sec-1-end {
+      display: flex;
+      justify-content: flex-end;
+      .flight-sec-1-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background-color: $mint-green;
+        padding: 10px 20px;
+        font-size: $fs-14;
+        font-weight: $fw-medium;
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}
+
+// section 2 css
+.section-content {
+  max-width: calc(100% - 40px);
+  padding: 0 10px;
+  margin: 0 auto;
+  @include xl {
+    max-width: 1400px;
+  }
+}
+
+.select-option {
+  border: 1px solid $border-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  gap: 0px;
+  color: $input-text;
+  border-radius: 4px 4px 0px 0px;
+  .select-label {
+    font-size: $fs-14;
+    font-weight: $fw-medium;
+    background-color: $neutrals;
+    margin-top: -10px;
+    margin-left: 10px;
+    padding: 0px 10px;
+    width: fit-content;
+  }
+  select {
+    position: relative;
+    z-index: 5;
+    background-color: transparent;
+    cursor: pointer;
+    appearance: none;
+    padding: 10px 15px;
+    font-size: $fs-16;
+    font-weight: $fw-medium;
+    border: none;
+    outline: none;
+  }
+  .select-icons {
+    position: absolute;
+    right: 5px;
+  }
+}
+
+
+// map section
+
+.map-sec-content{
+  background-color: $mint-green;
+  height: 486px;
+  
+}
+
+// flow section 3 
+// flow section 3 Left Side
+
+.flow-sec-3-card-left-main {
+  font-family: $font-montserrat;
+  .flow-sec-3-card-left-content {
+    width: calc(100% - 20px); 
+    margin: 10px auto;
+    background-color: $mint-green;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+    @include md{
+      height: 424px;
+      padding: 40px;
+    }
+    .flow-sec-3-left-card-text {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      .flow-sec-3-left-card-title {
+        display: flex;
+        justify-content: space-between;
+        h1 {
+          font-family: $font-trade;
+          font-size: 26px;
+          font-weight: 700;
+          text-align: left;
+          @include md{
+            font-size: 40px;
+            line-height: 50.52px;
+          }
+        }
+        div{
+          background-color: azure;
+          height: fit-content;
+          padding: 10px;
+          border-radius: 10px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+
+          p{
+            font-size: $fs-12;
+            font-weight: $fw-medium;
+            @include md{
+              font-size: $fs-14;
+            }
+          }
+          h2{
+            font-size: $fs-16;
+            font-weight: $fw-semibold;
+            @include md{
+              font-size: $fs-20;
+            }
+          }
+        }
+      }
+      p{
+        font-size: $fs-12;
+        text-align: justify;
+        font-weight: $fw-regular;
+        line-height: 18px;
+        @include md{
+          font-size: $fs-14;
+        }
+      }
+    }
+    .flow-sec-3-right-btn{
+      height: 48px;
+      font-size: $fs-14;
+      font-weight: $fw-medium;
+      background-color: #fff;
+      border: none;
+      opacity: 1;
+      border-radius: 4px;
+      &:hover{
+        background-color: rgba(255, 255, 255, 0.97);
+        border: none;
+        color: #000;
+      }
+    }
+  }
+}
+
+
+// flow section 3 right side
+
+.flow-sec-3-right-main{
+  font-family: $font-montserrat;
+  padding: 10px;
+  width: calc(100% - 20px); 
+  .flow-sec-3-right-content{
+    height: 100%;
+    display: grid;
+    align-items: center;
+    grid-row-gap:24px;  
+    @include md{
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-row-gap:24px; 
+      grid-column-gap: 24px;    
+    }
+    div{
+      height: 200px;
+      border-radius: 12px;
+      overflow: hidden;
+      
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        border: 2px solid #8DD3BB;
+      }
+    }
+
+  }
+
+}

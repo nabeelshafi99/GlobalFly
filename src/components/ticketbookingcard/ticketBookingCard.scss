@@ -1,0 +1,169 @@
+@import "../../css-config/color.scss";
+@import "../../css-config/font.scss";
+@import "../../css-config/mixins.scss";
+
+// Booking
+
+.ticket-booking-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  gap: 24px;
+
+  @include md {
+    flex-direction: row;
+  }
+
+  .ticket-booking-card-left {
+    flex: 1;
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    width: 100%;
+
+    flex-direction: column;
+    @include md {
+      flex-direction: row;
+    }
+
+    .ticket-booking-thumbnail {
+      background-color: white;
+      width: 100%;
+      height: 120px;
+      border-radius: 8px;
+      padding: 20px 10px;
+      border: 0.5px solid #8dd3bb;
+
+      @include md {
+        width: 80px;
+        height: 80px;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .ticket-booking-card-content-sec {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+
+      flex-direction: column;
+      @include md {
+        flex-direction: row;
+      }
+
+      .divider-box {
+        background-color: #d7e2ee;
+        height: 1px;
+        width: 100%;
+        @include md {
+          height: 48px;
+          width: 1px;
+        }
+      }
+
+      .ticket-booking-card-content-sec-left {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        .highfane-dash {
+          width: 24px;
+          height: 2px;
+          background-color: black;
+        }
+
+        .ticket-booking-card-content-sec-left-detail {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          gap: 8px;
+
+          .ticket-booking-card-sec-left-detail-heading {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 19.5px;
+            text-align: left;
+          }
+          .ticket-booking-card-sec-left-detail-title {
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 24.38px;
+            text-align: left;
+          }
+        }
+      }
+      .ticket-booking-card-content-sec-right {
+        .ticket-booking-card-content-sec-right-detail {
+          display: flex;
+          gap: 24px;
+          align-items: center;
+
+          .tbc-sec-right-detail-sub-card-row {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+          }
+        }
+      }
+    }
+  }
+  .ticket-booking-card-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    .ticket-booking-card-btn {
+      padding: 8px 16px;
+      background-color: $mint-green;
+      height: 48px;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 17.07px;
+      @include md {
+        font-size: 14px;
+      }
+    }
+
+    .tbc-btn-2 {
+      background-color: transparent;
+      border: 1px solid #8dd3bb;
+    }
+  }
+}
+
+.tbc-card-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  .tbk-icon-box {
+    width: 32px;
+    height: 32px;
+    background-color: #ebf6f2;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .tbc-sec-right-detail-content {
+    color: $blackish-green;
+    .tbc-sec-right-detail-content-heading {
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 14.63px;
+      text-align: left;
+      opacity: 60%;
+    }
+    .tbc-sec-right-detail-content-title {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 19.5px;
+      text-align: left;
+    }
+  }
+}

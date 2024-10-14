@@ -1,0 +1,458 @@
+@import "../../css-config/font.scss";
+@import "../../css-config/mixins.scss";
+@import "../../css-config/color.scss";
+
+
+// header css
+
+
+.header-main {
+  background-color: transparent;
+  font-family: $font-montserrat;
+  font-weight: $fw-semibold;
+  color: #fff;
+  margin: 0 auto;
+  z-index: 100;
+  .header-content {
+    max-width: calc(100% - 40px);
+    height: 70px;
+    @include md {
+      max-width: calc(100% - 60px);
+      height: 90px;
+    }
+    @include xl {
+      max-width: 1400px;
+    }
+
+    .header-left {
+      gap: 32px;
+      li {
+        cursor: pointer;
+        line-height: 90px;
+        font-size: $fs-14;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        border-bottom: 5px solid transparent;
+        svg {
+          height: 24px;
+          width: 24px;
+        }
+        &:hover {
+          border-color: $mint-green;
+        }
+      }
+    }
+    .header-center {
+      cursor: pointer;
+      @include md {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      svg {
+        width: 100%;
+        height: 24px;
+        @include md {
+          height: 36px;
+        }
+      }
+    }
+
+    .header-right {
+      gap: 10px;
+      .btn-bars {
+        background-color: $blackish-green;
+        color: #fff;
+        border-radius: 8px;
+        padding: 8px;
+        font-size: $fs-20;
+        height: 40px;
+        @include md {
+          display: none;
+        }
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+      .without-login {
+        gap: 10px;
+        @include md {
+          gap: 32px;
+        }
+        .btn {
+          width: Fill (52px) px;
+          height: Fill (24px) px;
+          padding: 5px 12px;
+          gap: 8px;
+          opacity: 0px;
+          @include md {
+            width: Fill (104px) px;
+            height: Fill (48px) px;
+            padding: 10px 24px 10px 24px;
+            cursor: pointer;
+          }
+          &.btn-fill {
+            display: none;
+            border-radius: 8px;
+            font-size: $fs-14;
+            @include md {
+              display: block;
+            }
+          }
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+      .with-login {
+        align-items: center;
+        gap: 16px;
+        .favourite {
+          cursor: pointer;
+          display: none;
+          gap: 4px;
+          align-items: center;
+          line-height: 90px;
+          border-bottom: 5px solid transparent;
+          @include md {
+            display: flex;
+          }
+          svg {
+            width: 19.5px;
+            height: 18px;
+            top: 3px;
+            left: 2.25px;
+            gap: 0px;
+            opacity: 0px;
+          }
+          &:hover {
+            border-color: $mint-green;
+          }
+        }
+        .divider-right {
+          display: none;
+          width: 5px;
+          height: 27px;
+          @include md {
+            display: flex;
+          }
+        }
+        .avatar-main {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+
+          .avatar {
+            cursor: pointer;
+            position: relative;
+            .down-icon {
+              height: 14px;
+              width: 14px;
+              position: absolute;
+              bottom: 0;
+              right: 0;
+
+              .user-short-detail {
+                box-shadow: 0px 2px 10px 0px #0000000d;
+                color: $blackish-green;
+                width: 329px;
+                height: 363px;
+                position: absolute; 
+                padding: 32px 0px 0px 0px;
+                border-radius: 12px 0px 12px 12px;
+                background-color: #fff;
+                opacity: 0px;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                top: 30px;
+                right: -100px;
+                gap: 24px;
+                z-index: 50;
+                @include md{
+                  top: 20px;
+                  right: 0;
+
+                }
+                .user-short-detail-devider {
+                  width: 265px;
+                  height: 0.5px;
+                  gap: 0px;
+                  opacity: 0.25px;
+                  background: #112211;
+
+                }
+                .user-short-detail-top {
+                  display: flex;
+                  gap: 16px;
+                  width: 265px;
+                  align-items: center;
+                  .user-short-detail-name {
+                    font-size: $fs-16;
+                    font-weight: $fw-semibold;
+                    line-height: 19.5px;
+                  }
+                  .user-short-detail-status {
+                    font-size: $fs-14;
+                    font-weight: $fw-regular;
+                  }
+                }
+                .user-short-detail-center {
+                  display: flex;
+                  gap: 16px;
+                  width: 265px;
+                }
+                .user-short-detail-bottom {
+                  display: flex;
+                  gap: 16px;
+                  width: 265px;
+                }
+              }
+            }
+          }
+          .profile-name {
+            cursor: pointer;
+            font-size: $fs-14;
+          }
+        }
+      }
+    }
+  }
+}
+
+.apply-bg {
+  background-color: $neutrals;
+  color: $blackish-green;
+  box-shadow: 0px 4px 16px 0px #1122110d;
+}
+
+
+// this page title css
+.section-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto 20px auto;
+  width: 100%;
+  h2 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 50px;
+    text-align: left;
+    @include md {
+      font-size: 32px;
+    }
+  }
+  h5 {
+    font-size: 12px;
+    display: none;
+    font-weight: 400;
+    line-height: 19.5px;
+    text-align: left;
+    @include md {
+      display: block;
+      font-size: 16px;
+    }
+  }
+
+  .section-title-right {
+    button {
+      width: 100px;
+      height: 35px;
+      font-size: $fs-12;
+      gap: 10px;
+      opacity: 0px;
+      @include md {
+        font-size: $fs-14;
+        width: 149px;
+        height: 40px;
+      }
+    }
+  }
+}
+
+// hero banner css
+.hero-banner {
+  position: relative;
+  z-index: -10;
+  margin: auto;
+  margin-top: -65px;
+  max-width: calc(100% - 15px);
+  border-radius: 10px;
+  overflow: hidden;
+  @include md {
+    border-radius: 20px;
+    margin-top: -82px;
+    max-width: calc(100% - 30px);
+  }
+  .hero-content {
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $neutrals;
+    text-transform: uppercase;
+    font-family: $font-trade;
+    text-align: center;
+    h3 {
+      font-size: $fs-32;
+      text-transform: capitalize;
+      font-weight: $fw-semibold;
+      @include md {
+        font-size: $fs-40;
+      }
+    }
+    h1 {
+      font-weight: $fw-semibold;
+      font-size: $fs-40;
+      @include md {
+        font-size: 80px;
+      }
+    }
+    p {
+      font-size: $fs-14;
+      font-weight: $fw-medium;
+
+      @include md {
+        font-size: $fs-16;
+      }
+    }
+  }
+  img {
+    width: 100%;
+    height: 300px;
+    object-position: center;
+    @include md {
+      height: 600px;
+    }
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+  }
+}
+
+// section 1 css
+.hero-sec-1 {
+  max-width: calc(100% - 50px);
+  background-color: $neutrals;
+  box-shadow: 0px 4px 16px 0px #8dd3bb26;
+  position: relative;
+  margin: -65px auto auto auto;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  @include md {
+    max-width: calc(100% - 100px);
+    max-height: 280px;
+    margin-top: -150px;
+  }
+  @include xl {
+    max-width: 1400px;
+  }
+  .hero-sec-1-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    gap: 32px;
+    .hero-sec-1-top {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      span {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border-bottom: 5px solid #fff;
+        line-height: 50px;
+        &:hover {
+          border-color: $mint-green;
+          opacity: 0.7;
+        }
+      }
+    }
+    .hero-sec-1-center {
+      display: flex;
+    }
+    .hero-sec-1-end {
+      display: flex;
+      justify-content: flex-end;
+      .hero-sec-1-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background-color: $mint-green;
+        padding: 10px 20px;
+        font-size: $fs-14;
+        font-weight: $fw-medium;
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+}
+
+// section 2 css
+.section-content {
+  max-width: calc(100% - 40px);
+  padding: 0 10px;
+  margin: 0 auto;
+  @include md{
+    max-width: calc(100% - 20px);
+  }
+  @include xl {
+    max-width: 1400px;
+  }
+}
+
+
+
+
+.form-field {
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  select{
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+  }
+  input {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: $fs-12;
+    @include md{
+      font-size: $fs-14;
+    }
+  }
+  span {
+    position: absolute;
+    top: 0;
+    transform: translateY(-50%);
+    background-color: white;
+    padding: 1px 5px;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 17.07px;
+    @include md {
+      font-size: 12px;
+    }
+  }
+}

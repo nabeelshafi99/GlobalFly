@@ -1,0 +1,28 @@
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-semibold: 600;
+$fw-bold: 700;
+
+@font-face {
+  font-family: "trade";
+  src: url("../../public/fonts/TradeGothic.woff");
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("../../public/fonts/Montserrat-Regular.woff") format("woff");
+  font-weight: $fw-regular;
+}
+
+$font-trade: TradeRegular, Arial, sans-serif;
+$font-montserrat: Montserrat, Arial, sans-serif;
+
+$fs-40: 40px;
+$fs-36: 36px;
+$fs-35: 35px;
+$fs-32: 32px;
+$fs-24: 24px;
+$fs-20: 20px;
+$fs-16: 16px;
+$fs-14: 14px;
+$fs-12: 12px;
+$fs-10: 10px;

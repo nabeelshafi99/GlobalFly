@@ -1,0 +1,49 @@
+@import "../../css-config/color.scss";
+@import "../../css-config/font.scss";
+@import "../../css-config/mixins.scss";
+
+
+
+.popup-card-main{
+    font-family: $font-montserrat;
+    .popup-card-title{
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 50.52px;
+    text-align: left;
+    
+    }
+
+    .form-field {
+        position: relative;
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        input {
+          width: 100%;
+          height: 100%;
+          padding: 5px;
+          background-color: transparent;
+          border: none;
+          outline: none;
+          font-size: $fs-12;
+          @include md{
+              padding: 8px;
+            font-size: $fs-14;
+          }
+        }
+        span {
+          position: absolute;
+          top: 0;
+          transform: translateY(-50%);
+          background-color: white;
+          padding: 1px 5px;
+          font-size: 10px;
+          font-weight: 400;
+          line-height: 17.07px;
+          @include md {
+            font-size: 12px;
+          }
+        }
+      }
+}
+

@@ -1,0 +1,38 @@
+@import "../css-config/color.scss";
+@import "../css-config/font.scss";
+@import "../css-config/mixins.scss";
+
+.auth-layout-main {
+  display: flex;
+  height: 100vh;
+  .auth-layout-img-main {
+    flex: 1;
+    background-color: white;
+    order: 1;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    .auth-layout-img-container {
+      width: 100%;
+      max-width: 500px;
+      height: calc(100% - 60px);
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    @include md {
+      display: flex;
+    }
+  }
+  .auth-layout-content-main {
+    flex: 1;
+    overflow: hidden;
+    background-color: white;
+   
+  }
+}

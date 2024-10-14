@@ -1,0 +1,48 @@
+@import "../../css-config/color.scss";
+@import "../../css-config/font.scss";
+@import "../../css-config/mixins.scss";
+
+.bank-card-container {
+  height: 200px;
+  width: 350px;
+  background-color: $mint-green;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .bank-card-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .bank-card-info {
+      display: flex;
+      flex-direction: column;
+      .bank-card-heading {
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 29.26px;
+        text-align: left;
+      }
+      .bank-card-number {
+        font-size: 32px;
+        font-weight: 600;
+        line-height: 39.01px;
+        text-align: left;
+      }
+      .bank-card-valid {
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 14.63px;
+        text-align: left;
+      }
+      .bank-card-valid-date {
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 24.38px;
+        text-align: left;
+      }
+    }
+  }
+}

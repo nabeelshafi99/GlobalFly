@@ -1,0 +1,131 @@
+@import "../../css-config/font.scss";
+@import "../../css-config/color.scss";
+@import "../../css-config/mixins.scss";
+
+.footer-main {
+  font-family: $font-montserrat;
+  font-weight: $fw-semibold;
+  background-color: $mint-green;
+  margin-top: 30px;
+  .footer-content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    max-width: calc(100% - 40px);
+    gap: 60px;
+    height: 100px;
+    @include md {
+      max-width: calc(100% - 100px);
+      height: 300px;
+      gap: 80px;
+    }
+    @include lg {
+      height: 422px;
+      gap: 140px;
+      max-width: 1400px;
+    }
+
+    .footer-left {
+      display: flex;
+      gap: 10px;
+        @include md {
+        gap: 24px;
+        justify-content: space-between;
+        flex-direction: column;
+      }
+      .footer-logo {
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        svg {
+          height: 30px;
+          width: 100%;
+          @include md {
+            height: 40px;
+          }
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+
+      .footer-social-icons {
+        position: absolute;
+        top: 50%;
+        right: 0%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        @include md {
+            position: static;
+        }
+        span {
+          width: 20px;
+          height: 20px;
+          display: flex;
+          align-items: center;
+        
+          svg {
+            &:hover {
+              opacity: 0.7;
+            }
+          }
+        }
+      }
+    }
+    .footer-center {
+      display: none;
+      justify-content: space-between;
+      flex: 1;
+      @include md {
+        display: flex;
+      }
+      .footer-menu {
+        display: none;
+        margin-top: 80px;
+        flex-direction: column;
+        gap: 10px;
+        font-weight: $fw-medium;
+        font-size: 8px;
+        @include md {
+          font-size: $fs-10;
+          display: flex;
+          gap: 16px;
+        }
+        @include lg {
+          font-size: $fs-14;
+        }
+        h5 {
+          cursor: pointer;
+          &:hover {
+            opacity: 0.7;
+          }
+          &:first-child {
+            opacity: 1;
+            font-size: $fs-10;
+            font-weight: $fw-bold;
+            @include md {
+              font-size: $fs-12;
+            }
+            @include lg {
+              font-size: $fs-16;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.watermark{
+  position: absolute;
+  bottom: 5px;
+  font-size: $fs-12;
+  letter-spacing: 2px;
+  text-align: center;
+  width: 100%;
+  color: gray;
+}

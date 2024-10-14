@@ -1,0 +1,72 @@
+@import "../../css-config/font.scss";
+@import "../../css-config/mixins.scss";
+@import "../../css-config/color.scss";
+
+.flash-card {
+    font-family: $font-montserrat;
+    font-weight: $fw-regular;
+  cursor: pointer;
+  border-radius: 20px;
+  height: 560px;
+  max-width: calc(100% - 20px);
+  position: relative;
+  box-shadow: 0px 4px 16px 0px #1122110D;
+  @include md{
+      width: 604px;
+  }
+  &::before {
+    content: "";
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    z-index: 50;
+    width: 100%;
+    height: 100%;
+  }
+  img {
+    border-radius: 20px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .flash-card-content {
+    margin-bottom: 20px;
+    z-index: 50;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 16px;
+    color: $neutrals;
+    position: absolute;
+    bottom: 10px;
+    h2 {
+      font-size: $fs-40;
+      font-weight: $fw-semibold;
+    }
+    h5 {
+      width: 80%;
+      font-size: $fs-16;
+      font-weight: $fw-regular;
+      line-height: 20px;
+    }
+  }
+}
+
+.flash-btn {
+  color: $blackish-green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: $mint-green;
+  padding: 10px 20px;
+  font-size: $fs-14;
+  font-weight: $fw-medium;
+  &:hover {
+    opacity: 0.8;
+  }
+}

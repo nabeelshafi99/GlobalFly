@@ -1,0 +1,73 @@
+@import "../../css-config/font.scss";
+@import "../../css-config/mixins.scss";
+@import "../../css-config/color.scss";
+
+.global-card {
+  height: 420px;
+  width: 280px;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  font-family: $font-montserrat;
+  font-weight: $fw-semibold;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  img{
+    width: 100%;
+    height: 100%;
+  }
+  .card-content {
+    z-index: 99;
+    bottom: 10px;
+    position: absolute;
+    color: #fff;
+    width: 100%;
+    bottom: 20px;
+    max-width: calc(100% - 40px);
+
+    .card-content-text {
+        width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      .card-content-title {
+        text-align: left;
+        h1 {
+          font-size: $fs-24;
+          font-weight: $fw-semibold;
+          line-height: 29.26px;
+        }
+        p {
+          font-size: $fs-14;
+          font-weight: $fw-regular;
+          line-height: 17.07px;
+          text-align: left;
+        }
+      }
+      .card-content-price{
+        font-size: $fs-24;
+        font-weight: $fw-semibold;
+      }
+    }
+
+  }
+}
+
+.global-card-btn{
+  height: 48px;
+  width: 100%;
+  font-size:14px;
+  font-weight:500;
+  border-radius: 4px;
+  margin-top: 15px;
+  padding: 8px 16px;
+  background-color:#8DD3BB;
+  border: none;
+  color: $blackish-green !important;
+  &:hover{
+    border: none;
+    background-color:rgba(141, 211, 187,0.95) !important;
+    
+  }
+} 

@@ -1,0 +1,118 @@
+@import "../../css-config/color.scss";
+@import "../../css-config/font.scss";
+@import "../../css-config//mixins.scss";
+
+.review-card {
+  background-color: $neutrals;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 2px 4px 16px 0px #1122111A;
+   padding: 20px;
+  font-family: $font-montserrat;
+  font-weight: $fw-regular;
+  width: calc(100% - 60px);
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  justify-content: center;
+  border-radius: 20px;
+  &::before{
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: calc(100% - 10px);
+    background-color: $mint-green;
+    border-radius: 20px;
+  z-index: -10;
+  left: 25px;
+  top: 22px;
+  
+  @include md{
+    width: 100%;
+    
+  }
+  }
+  
+  .review-title {
+    font-size: $fs-16;
+    font-weight: $fw-bold;
+    line-height: 20px;
+    @include md{
+    font-size: $fs-24;
+    line-height: 30px;
+    }
+  }
+  .review-des {
+    font-size: $fs-12;
+    font-weight: $fw-medium;
+    line-height: 17px;
+    @include md{
+    font-size: $fs-14;
+      
+    }
+  }
+  .review-more-btn {
+    cursor: pointer;
+    font-size: $fs-12;
+    font-weight: $fw-bold;
+    line-height: 17px;
+    &:hover{
+      opacity: 0.7;
+    }
+    @include md{
+    font-size: $fs-14;
+    }
+  }
+  .review-points {
+    display: flex;
+    gap: 12px;
+    svg{
+      height: 20px;
+      @include md{
+        height: 24px;
+      }
+    }
+  }
+  .review-user-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    h4 {
+      font-size: $fs-12;
+      font-weight: $fw-bold;
+      @include md{
+      font-size: $fs-14;
+      }
+    }
+    h5 {
+      font-size: $fs-12;
+      font-weight: $fw-medium;
+      line-height: 14.63px;
+    }
+    span{
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        .review-user-acc{
+            font-size: $fs-12;
+            font-weight: $fw-bold;
+            line-height: 15px;
+
+        }
+    }
+  }
+
+  .review-card-img{
+    margin: 0 auto;
+    max-width: calc(100% - 20px);
+    @include md{
+        width: 377px;
+
+    }
+    img{
+        border-radius: 8px;
+        width: 100%;
+        height: 100%;
+    }
+  }
+}
