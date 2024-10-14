@@ -43,14 +43,6 @@ const Home = () => {
     window.addEventListener("scroll", handleScroll);
   }, []);
 
-  const countryOptions = [
-    { key: "kh-su", value: "kh-su", text: "Karachi - Sudia Arabia" },
-    { key: "kh-is", value: "ks-is", text: "Karachi - Islamabad" },
-    { key: "kh-lh", value: "kh-lh", text: "Karachi - Lahore" },
-    { key: "kh-pes", value: "kh-pes", text: "Karachi - Peshawar" },
-    { key: "kh-dub", value: "kh-dub", text: "Karachi - Dubai" },
-    { key: "kh-tur", value: "kh-tur", text: "Karachi - Turkey" },
-  ];
 
   const handleProfile = () => {
     setProfilePopup(!profilePopup ? true : false);

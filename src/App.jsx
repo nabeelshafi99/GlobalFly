@@ -14,6 +14,7 @@ import ProfileLayout from "./layout/ProfileLayout";
 import Account from "./pages/profile/Accout";
 import PatmentMethod from "./pages/profile/PaymentMethod";
 import TicketBooking from "./pages/profile/TicketBooking";
+import ListingLayout from "./layout/ListingLayout";
 
 function App() {
   return (
@@ -36,6 +37,9 @@ function App() {
           <Route path="/profile" element={<Account />} />
           <Route path="/profile/paymentmethod" element={<PatmentMethod />} />
           <Route path="/profile/ticketbooking" element={<TicketBooking />} />
+        </Route>
+        <Route path="/listing" element={<ListingLayout />}>
+
         </Route>
       </Routes>
     </BrowserRouter>
