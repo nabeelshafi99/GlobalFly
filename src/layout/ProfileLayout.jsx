@@ -17,6 +17,9 @@ const ProfileLayout = () => {
   const [change, setChange] = useState(false);
 
   useEffect(() => {
+    if(!user){
+      navigate("/")
+    }
     if (user && user.uid && !isLoading) {
       setIsLoading(false); 
       handleFetch();
