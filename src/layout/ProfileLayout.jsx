@@ -12,16 +12,16 @@ import { doc, getDoc, updateDoc } from "firebase/firestore";
 const ProfileLayout = () => {
   const navigate = useNavigate();
   const { user, setUser } = useContext(UserProvider);
-  const [isLoading,setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
   const [accountInfo, setAccountInfo] = useState(null);
   const [change, setChange] = useState(false);
 
   useEffect(() => {
-    if(!user){
-      navigate("/")
+    if (!user) {
+      navigate("/");
     }
     if (user && user.uid && !isLoading) {
-      setIsLoading(false); 
+      setIsLoading(false);
       handleFetch();
     }
   }, [user, isLoading]);
@@ -39,7 +39,7 @@ const ProfileLayout = () => {
     } catch (error) {
       console.log("error", error);
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
   };
 
@@ -66,7 +66,7 @@ const ProfileLayout = () => {
         } catch (error) {
           console.log(error);
         } finally {
-          setIsLoading(false); 
+          setIsLoading(false);
         }
       });
     } else {
@@ -88,7 +88,7 @@ const ProfileLayout = () => {
         } catch (error) {
           console.log(error);
         } finally {
-          setIsLoading(false); 
+          setIsLoading(false);
         }
       });
     }
@@ -116,7 +116,7 @@ const ProfileLayout = () => {
         <input type="file" className="hidden" id="uploadAvatar" />
         <input type="file" className="hidden" id="uploadCover" />
         <Header />
-     
+
         <div className="profile-top-container mb-5">
           <div className="profile-cover-img relative z-1">
             <img

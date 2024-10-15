@@ -39,7 +39,7 @@ function App() {
           <Route path="/profile/ticketbooking" element={<TicketBooking />} />
         </Route>
         <Route path="/listing" element={<ListingLayout />}>
-
+          <Route path="/listing" element={<FlightListing />} />
         </Route>
       </Routes>
     </BrowserRouter>

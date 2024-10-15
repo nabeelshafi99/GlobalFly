@@ -1,9 +1,16 @@
+import ListingCard from "../../components/listingCard/ListingCard";
+import SortBox from "../../components/sortBox/SortBox";
 
 
 
 const FlightListing =() => {
     return(
-        <h1>FlightListing</h1>
+        <>
+        <SortBox />
+        <div className="my-5 bg-white">
+            <ListingCard />
+        </div>
+        </>
     )
 }
 

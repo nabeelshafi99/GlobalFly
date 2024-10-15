@@ -1,16 +1,15 @@
-
 import { Col, Row, Slider, Switch } from "antd";
 import Footer from "../components/footer/Footer";
 import Header from "../components/header/Header";
 import "./listingLayout.scss";
 import { useState } from "react";
+import { Outlet } from "react-router-dom";
 
 const ListingLayout = () => {
-    const [disabled, setDisabled] = useState(false);
-    const onChange = (checked) => {
-      setDisabled(checked);
-    };
-
+  const [disabled, setDisabled] = useState(false);
+  const onChange = (checked) => {
+    setDisabled(checked);
+  };
 
   return (
     <>
@@ -124,23 +123,105 @@ const ListingLayout = () => {
                   <h5 className="filter-container-subHeading">Price</h5>
                 </div>
                 <div>
-                <Slider range defaultValue={[0, 100]} disabled={disabled} />
-    
+                  <Slider range defaultValue={[0, 100]} disabled={disabled} />
+                  <span className="flex justify-between">
+                    <span>$ 98</span>
+                    <span>$ 98</span>
+                  </span>
                 </div>
               </div>
+              <div className="mb-5 filter-divider"></div>
+
               <div className="mb-5">
                 <div>
-                  <h5 className="filter-container-subHeading">Departure Time</h5>
+                  <h5 className="filter-container-subHeading">
+                    Departure Time
+                  </h5>
                 </div>
                 <div>
-                <Slider range defaultValue={[0, 100]} disabled={disabled} />
-    
+                  <Slider range defaultValue={[0, 100]} disabled={disabled} />
+                  <span className="flex justify-between">
+                    <span>$ 98</span>
+                    <span>$ 98</span>
+                  </span>
+                </div>
+              </div>
+              <div className="mb-5 filter-divider"></div>
+              <div className="mb-5">
+                <div>
+                  <h5 className="filter-container-subHeading">
+                    Rating
+                  </h5>
+                </div>
+                <div>
+                  <span className="flex gap-5 mt-3 font-semibold text-sm" >
+                    <span className="border p-2">0+</span>
+                    <span className="border p-2">1+</span>
+                    <span className="border p-2">2+</span>
+                    <span className="border p-2">3+</span>
+                    <span className="border p-2">4+</span>
+                  </span>
+                </div>
+              </div>
+              <div className="mb-5 filter-divider"></div>
+              <div className="mb-5">
+                <div>
+                  <h5 className="filter-container-subHeading">
+                  Airlines
+                  </h5>
+                </div>
+                <div>
+                 <div className="flex gap-2 font-semibold my-2">
+                  <input type="checkbox" />
+                  <span>Emirated</span>
+                 </div>
+                 <div className="flex gap-2 font-semibold my-2">
+                  <input type="checkbox" />
+                  <span>Fly Dubai</span>
+                 </div>
+                 <div className="flex gap-2 font-semibold my-2">
+                  <input type="checkbox" />
+                  <span>Qatar</span>
+                 </div>
+                 <div className="flex gap-2 font-semibold my-2">
+                  <input type="checkbox" />
+                  <span>Etihad</span>
+                 </div>
+                 
+                </div>
+              </div>
+              <div className="mb-5 filter-divider"></div>
+              <div className="mb-5">
+                <div>
+                  <h5 className="filter-container-subHeading">
+                  Trips
+                  </h5>
+                </div>
+                <div>
+                 
+                 <div className="flex gap-2 font-semibold my-2">
+                  <input type="checkbox" />
+                  <span>Round trip</span>
+                 </div>
+                 <div className="flex gap-2 font-semibold my-2">
+                  <input type="checkbox" />
+                  <span>On Way</span>
+                 </div>
+                 <div className="flex gap-2 font-semibold my-2">
+                  <input type="checkbox" />
+                  <span>Multi-City</span>
+                 </div>
+                 <div className="flex gap-2 font-semibold my-2">
+                  <input type="checkbox" />
+                  <span>My Dates Are Flexible</span>
+                 </div>
+                 
                 </div>
               </div>
             </div>
           </Col>
           <Col xs={24} md={16}>
-            <h1 className="bg-slate-400">Listing Layout</h1>
+            <Outlet />
           </Col>
         </Row>
       </div>
