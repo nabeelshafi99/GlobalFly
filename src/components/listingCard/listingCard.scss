@@ -1,14 +1,92 @@
+@import "../../css-config/color.scss";
+@import "../../css-config/font.scss";
+@import "../../css-config/mixins.scss";
 
+.filter-divider {
+  width: 100%;
+  height: 1px;
+  background-color: black;
+  opacity: 25%;
+}
 
+.listing-card-content {
+  font-family: $font-montserrat;
+  display: flex;
+  justify-content: space-between;
+  .listing-content-top-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 
-
-
-
-
-
-.filter-divider{
-    width: 100%;
-    height: 1px;
-    background-color: black;
-    opacity: 25%;
+    .listing-rating {
+      padding: 4px 8px;
+      border: 1px solid #8dd3bb;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 14.63px;
+      text-align: left;
+    }
+    .listing-rating-text {
+      font-size: 12px;
+      font-weight: 700;
+      text-align: left;
+    }
+    .listing-rating-review {
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 14.63px;
+      text-align: left;
+    }
   }
+  .listing-card-top-row-right {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-end;
+    .listing-card-top-row-right-title {
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 14.63px;
+      text-align: left;
+    }
+    .listing-card-top-row-right-text {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 29.26px;
+      text-align: right;
+      color: #ff8682;
+      @include md{
+        font-size: 24px;
+
+      }
+    }
+  }
+}
+
+.listing-card-center-content {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  .listing-card-center-right-content {
+    display: flex;
+    gap: 24px;
+
+    .listing-card-center-content-left {
+      display: flex;
+      gap: 12px;
+    }
+    .listing-content-card-title {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 19.5px;
+      text-align: left;
+    }
+    .listing-content-card-subtitle {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 17.07px;
+      text-align: left;
+      opacity: 40%;
+    }
+  }
+}

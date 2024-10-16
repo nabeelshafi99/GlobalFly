@@ -1,4 +1,3 @@
-import "./sortBox.scss";
 
 const SortBox = () => {
   return (

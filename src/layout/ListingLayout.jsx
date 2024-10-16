@@ -24,7 +24,7 @@ const ListingLayout = () => {
                   <span>From - To</span>
                   <select
                     style={{ border: "none", outline: "none" }}
-                    onChange={(e) => console.log("working")}
+                  
                     name=""
                     id=""
                     className="w-full"
@@ -43,7 +43,7 @@ const ListingLayout = () => {
                   <span>Trip</span>
                   <select
                     style={{ border: "none", outline: "none" }}
-                    onChange={(e) => console.log("working")}
+                
                     name=""
                     id=""
                     className="w-full"
@@ -71,7 +71,7 @@ const ListingLayout = () => {
                   <span>Pessenger - Class</span>
                   <select
                     style={{ border: "none", outline: "none" }}
-                    onChange={(e) => console.log("working")}
+    
                     name=""
                     id=""
                     className="w-full"

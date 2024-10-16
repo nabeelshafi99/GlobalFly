@@ -195,7 +195,7 @@ const Home = () => {
               </button>
             </span>
             <span className={`with-login ${user ? "flex" : "hidden"}`}>
-              <span className="favourite">
+              {/* <span className="favourite">
                 <svg
                   width="20"
                   height="19"
@@ -209,7 +209,7 @@ const Home = () => {
                   />
                 </svg>
                 Favourite
-              </span>
+              </span> */}
               <span className="divider-right"></span>
               <span className="avatar-main">
                 <span className="avatar">
@@ -406,9 +406,9 @@ const Home = () => {
                 </span>
               </span>
             </span>
-            <button className="btn-bars">
+            {/* <button className="btn-bars">
               <FaBarsStaggered />
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

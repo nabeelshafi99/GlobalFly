@@ -1,28 +1,87 @@
 import { Col, Row } from "antd";
+import ListingCardImg from "../../assets/images/listing-card.png";
 import "./listingCard.scss";
 
 const ListingCard = () => {
   return (
-    <div className="flex gap-2 ">
-      <Row className="w-full">
-        <Col xs={24} md={6} className="bg-gray-700">
-          <div>img</div>
+    <div className="flex gap-2 justify-center p-5 bg-white">
+      <Row gutter={[20,20]} className="w-full">
+        <Col xs={24} md={6}>
+          <div>
+            <img className="w-full" src={ListingCardImg} alt="" />
+          </div>
         </Col>
-        <Col xs={24} md={18} className=" px-4">
-          <div className="flex justify-between">
-            <span>
-              <span className="border p-2 me-2">4.2</span> 
-            <span className="text-sm">
-              Very Good 54 reviews
+        <Col xs={24} md={18} className="flex flex-col gap-2">
+          <div className="listing-card-content">
+            <span className="listing-content-top-left">
+              <span className="listing-rating">4.2</span>
+              <span className="flex gap-3">
+                <span className="listing-rating-text">Very Good</span>
+                <span className="listing-rating-review">54 reviews</span>
+              </span>
             </span>
-            </span>
-            <span className="flex flex-col items-end">
-                <span>starting from</span>
-                <span className="text-2xl font-semibold">$ 104</span>
+
+            <span className="listing-card-top-row-right">
+              <span className="listing-card-top-row-right-title">starting from</span>
+              <span className="listing-card-top-row-right-text">$ 104</span>
             </span>
           </div>
-          <div>dsada</div>
+
+          <div className="flex flex-col gap-4 mb-4">
+
+            <div className="listing-card-center-content">
+
+              <div>
+                <input type="checkbox" />
+              </div>
+
+              <div className="listing-card-center-right-content">
+                <div className="listing-card-center-content-left">
+                  <div>
+                    <div className="listing-content-card-title">12:00 pm</div>
+                    <div className="listing-content-card-subtitle">Emirates</div>
+                  </div>
+                  <div className="listing-content-card-title">-</div>
+                  <div className="listing-content-card-title">01:28 pm</div>
+                </div>
+                <div className="listing-content-card-title">non stop</div>
+                <div>
+                  <div className="listing-content-card-title">2h 28m</div>
+                  <div className="listing-content-card-subtitle">EWR-BNA</div>
+                </div>
+
+              </div>
+
+            </div>
+            <div className="listing-card-center-content">
+
+              <div>
+                <input type="checkbox" />
+              </div>
+
+              <div className="listing-card-center-right-content">
+                <div className="listing-card-center-content-left">
+                  <div>
+                    <div className="listing-content-card-title">12:00 pm</div>
+                    <div className="listing-content-card-subtitle">Emirates</div>
+                  </div>
+                  <div className="listing-content-card-title">-</div>
+                  <div className="listing-content-card-title">01:28 pm</div>
+                </div>
+                <div className="listing-content-card-title">non stop</div>
+                <div>
+                  <div className="listing-content-card-title">2h 28m</div>
+                  <div className="listing-content-card-subtitle">EWR-BNA</div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
           <div className="mb-5 filter-divider"></div>
+
           <div className="flex gap-2">
             <button className="border px-3" style={{ height: "48px" }}>
               <svg
