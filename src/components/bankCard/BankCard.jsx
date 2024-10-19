@@ -1,13 +1,13 @@
 import "./bankCard.scss";
 
 
-const BankCard = () => {
+const BankCard = ({cardnumber,cardexpire}) => {
     return(
         <div className="bank-card-container">
         <div className="bank-card-section">
           <span className="bank-card-info">
             <span className="bank-card-heading">**** **** ****</span>
-            <span className="bank-card-number">4321</span>
+            <span className="bank-card-number">{cardnumber}</span>
           </span>
           <span>
             <svg
@@ -31,7 +31,7 @@ const BankCard = () => {
         <div className="bank-card-section">
           <span className="bank-card-info">
             <span className="bank-card-valid">Valid Thru</span>
-            <span className="bank-card-valid-date">02/27</span>
+            <span className="bank-card-valid-date">{cardexpire}</span>
           </span>
           <span>
             <svg

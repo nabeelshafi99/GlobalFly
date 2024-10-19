@@ -10,6 +10,11 @@ import Sec3Gallery2 from "../../assets/images/sec-3-gallery-2.jpg";
 import Sec3Gallery3 from "../../assets/images/sec-3-gallery-3.jpg";
 import Sec3Gallery4 from "../../assets/images/sec-3-gallery-4.jpg";
 
+import React from "react";
+import { DatePicker, Space } from "antd";
+import { Link } from "react-router-dom";
+const { RangePicker } = DatePicker;
+
 const FlightFlow = () => {
   const [destination, setDestination] = useState("");
   const [open, setOpen] = useState(false);
@@ -25,7 +30,9 @@ const FlightFlow = () => {
     { key: "kh-pes", value: "kh-pes", text: "Karachi - Peshawar" },
     { key: "kh-dub", value: "kh-dub", text: "Karachi - Dubai" },
     { key: "kh-tur", value: "kh-tur", text: "Karachi - Turkey" },
-  ];
+  ];   
+  
+
 
   return (
     <div>
@@ -48,52 +55,78 @@ const FlightFlow = () => {
             <span>Where are you flying?</span>
           </div>
           <div className="flight-sec-1-center ">
-          <Row className="w-full" gutter={[20, 20]}>
-            <Col xs={24} md={6}>
-              <div className="form-field">
-                <span>From - To</span>
-                <select style={{border:"none",outline:"none"}} onChange={(e) => console.log("working")} name="" id="" className='w-full'>
-                  <option value="lahore-karachi">Lahore - Karachi</option>
-                  <option value="karachi-sudia">Karachi - Sudia Arabia</option>
-                  <option value="turkey-karachi">Turkey - Karachi</option>
-                  <option value="dubai-islamabad">Dubai - Islamabad</option>
-                </select>
-              </div>
-            </Col>
-            <Col  xs={24} md={6}>
-              <div className="form-field">
-                <span>Trip</span>
-                <select style={{border:"none",outline:"none"}} onChange={(e) => console.log("working")} name="" id="" className='w-full'>
-                  <option value="return">Return</option>
-                  <option value="oneway">One Way</option>
-                  <option value="Roundtrip">Round Trip</option>
-                  <option value="multicity">Multicity</option>
-                </select>
-              </div>
-            </Col>
-            <Col xs={24} md={6}>
-              <div className="form-field">
-                <span>Depart- Return</span>
-                <input
-                  type="date"
-                  // onChange={(e) => setDateExpire(e.target.value)}
-                  // value={dateExpire}
-                  placeholder="02/27"
-                />
-              </div>
-            </Col>
-            <Col  xs={24} md={6}>
-              <div className="form-field">
-                <span>Pessenger - Class</span>
-                <select style={{border:"none",outline:"none"}} onChange={(e) => console.log("working")} name="" id="" className='w-full'>
-                  <option value="onepessengereconomy">1 Pessenger, Economy</option>
-                  <option value="onepessengereconomy">1 Pessenger, Economy</option>
-                  <option value="onepessengereconomy">1 Pessenger, Economy</option>
-                  <option value="onepessengereconomy">1 Pessenger, Economy</option>
-                </select>
-              </div>
-            </Col>
-          </Row>
+            <Row className="w-full" gutter={[20, 20]}>
+              <Col xs={24} md={6}>
+                <div className="form-field">
+                  <span>From - To</span>
+                  <select
+                    style={{ border: "none", outline: "none" }}
+                    onChange={(e) => console.log("working")}
+                    name=""
+                    id=""
+                    className="w-full"
+                  >
+                    <option value="lahore-karachi">Lahore - Karachi</option>
+                    <option value="karachi-sudia">
+                      Karachi - Sudia Arabia
+                    </option>
+                    <option value="turkey-karachi">Turkey - Karachi</option>
+                    <option value="dubai-islamabad">Dubai - Islamabad</option>
+                  </select>
+                </div>
+              </Col>
+              <Col xs={24} md={6}>
+                <div className="form-field">
+                  <span>Trip</span>
+                  <select
+                    style={{ border: "none", outline: "none" }}
+                    onChange={(e) => console.log("working")}
+                    name=""
+                    id=""
+                    className="w-full"
+                  >
+                    <option value="return">Return</option>
+                    <option value="oneway">One Way</option>
+                    <option value="Roundtrip">Round Trip</option>
+                    <option value="multicity">Multicity</option>
+                  </select>
+                </div>
+              </Col>
+              <Col xs={24} md={6}>
+                <div className="form-field relative">
+                  <span>Depart- Return</span>
+                  <RangePicker
+                    style={{ border: "none", padding: 0 }}
+                    renderExtraFooter={() => "extra footer"}
+                  />
+                </div>
+              </Col>
+              <Col xs={24} md={6}>
+                <div className="form-field">
+                  <span>Pessenger - Class</span>
+                  <select
+                    style={{ border: "none", outline: "none" }}
+                    onChange={(e) => console.log("working")}
+                    name=""
+                    id=""
+                    className="w-full"
+                  >
+                    <option value="onepessengereconomy">
+                      1 Pessenger, Economy
+                    </option>
+                    <option value="onepessengereconomy">
+                      2 Pessenger, Economy
+                    </option>
+                    <option value="onepessengereconomy">
+                      3 Pessenger, Economy
+                    </option>
+                    <option value="onepessengereconomy">
+                      4 Pessenger, Economy
+                    </option>
+                  </select>
+                </div>
+              </Col>
+            </Row>
           </div>
 
           <div className="flight-sec-1-end">
@@ -112,7 +145,9 @@ const FlightFlow = () => {
                   strokeWidth="0.046875"
                 />
               </svg>
+              <Link to={"/listing"}>
               Show Filghts
+              </Link>
             </button>
           </div>
         </div>

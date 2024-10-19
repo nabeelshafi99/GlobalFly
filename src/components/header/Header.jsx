@@ -7,6 +7,9 @@ import { useNavigate } from "react-router-dom";
 import { UserProvider } from "../../context/UserContext";
 import { signOut } from "firebase/auth";
 import { auth } from "../../utils/firebase";
+import React from 'react';
+import { DatePicker, Space } from 'antd';
+const { RangePicker } = DatePicker;
 
 
 const Header = () => {

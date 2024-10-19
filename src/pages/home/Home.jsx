@@ -8,18 +8,78 @@ import FlashCard from "../../components/flashCard/FlashCard";
 import FlashCardImg1 from "../../assets/images/FlashCard1.jpg";
 import FlashCardImg2 from "../../assets/images/FlashCard2.jpg";
 import ReviewImg1 from "../../assets/images/ReviewImg1.jpg";
-import SmallCardImg from "../../assets/images/sm-card-img.jpg";
 import { Avatar } from "antd";
 import { FaBarsStaggered } from "react-icons/fa6";
 import { FaUser } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserProvider } from "../../context/UserContext";
 import { signOut } from "firebase/auth";
 import { auth } from "../../utils/firebase";
+import React from 'react';
+import { DatePicker, Space } from 'antd';
+const { RangePicker } = DatePicker;
 
+// Places Images
+import Place01 from "../../assets/images/place01.jpg";
+import Place02 from "../../assets/images/place02.jpg";
+import Place03 from "../../assets/images/place03.jpg";
+import Place04 from "../../assets/images/place04.jpg";
+import Place05 from "../../assets/images/place05.jpg";
+import Place06 from "../../assets/images/place06.jpg";
+import Place07 from "../../assets/images/place07.jpg";
+import Place08 from "../../assets/images/place08.jpg";
+import Place09 from "../../assets/images/place09.jpg";
+
+const places = [
+  {
+    title: "Istanbul, Turkey",
+    category: ["Flights", "Hotels", "Resorts"],
+    image: Place01,
+  },
+  {
+    title: "Sydney, Australia",
+    category: ["Flights", "Hotels", "Resorts"],
+    image: Place02,
+  },
+  {
+    title: "Baku, Azerbaijan",
+    category: ["Flights", "Hotels", "Resorts"],
+    image: Place03,
+  },
+  {
+    title: "Malé, Maldives",
+    category: ["Flights", "Hotels", "Resorts"],
+    image: Place04,
+  },
+  {
+    title: "Paris, France",
+    category: ["Flights", "Hotels", "Resorts"],
+    image: Place05,
+  },
+  {
+    title: "New York, US",
+    category: ["Flights", "Hotels", "Resorts"],
+    image: Place06,
+  },
+  {
+    title: "London, UK",
+    category: ["Flights", "Hotels", "Resorts"],
+    image: Place07,
+  },
+  {
+    title: "Tokyo, Japan",
+    category: ["Flights", "Hotels", "Resorts"],
+    image: Place08,
+  },
+  {
+    title: "Dubai, UAE",
+    category: ["Flights", "Hotels", "Resorts"],
+    image: Place09,
+  },
+];
 
 const Home = () => {
-  const {user, setuser} = useContext(UserProvider);
+  const { user, setuser } = useContext(UserProvider);
   const [scroll, setScroll] = useState(false);
   const [destination, setDestination] = useState("");
   const [open, setOpen] = useState(false);
@@ -42,7 +102,6 @@ const Home = () => {
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
   }, []);
-
 
   const handleProfile = () => {
     setProfilePopup(!profilePopup ? true : false);
@@ -68,7 +127,9 @@ const Home = () => {
                   fill={scroll ? "#112211" : "#fff"}
                 />
               </svg>
+              <Link to={"/listing"}>
               Find Flight
+              </Link>
             </li>
             <li onClick={() => handleClick("/flow/hotel")}>
               <svg
@@ -83,7 +144,9 @@ const Home = () => {
                   fill={scroll ? "#112211" : "#fff"}
                 />
               </svg>
+              <Link to={"/listing/hotel"}>
               Find Stays
+              </Link>
             </li>
           </ul>
           <div className="header-center flex" onClick={() => handleClick("/")}>
@@ -234,14 +297,19 @@ const Home = () => {
                           <Avatar size={64} icon={<FaUser />} />
 
                           <div>
-                            <div className="user-short-detail-name">{user.displayName}</div>
+                            <div className="user-short-detail-name">
+                              {user.displayName}
+                            </div>
                             <h5 className="user-short-detail-status">Online</h5>
                           </div>
                         </div>
                         <div className="user-short-detail-devider"></div>
                         <div className="user-short-detail-center ">
                           <div className="flex flex-col gap-2 w-full">
-                            <span className="flex justify-between items-center" onClick={() => handleClick("/profile")} >
+                            <span
+                              className="flex justify-between items-center"
+                              onClick={() => handleClick("/profile")}
+                            >
                               <span className="flex gap-2 items-center">
                                 <svg
                                   width="18"
@@ -273,7 +341,12 @@ const Home = () => {
                                 />
                               </svg>
                             </span>
-                            <span className="flex justify-between items-center" onClick={() => handleClick("/profile/paymentmethod")} >
+                            <span
+                              className="flex justify-between items-center"
+                              onClick={() =>
+                                handleClick("/profile/paymentmethod")
+                              }
+                            >
                               <span className="flex gap-2 items-center">
                                 <svg
                                   width="18"
@@ -377,7 +450,10 @@ const Home = () => {
                               </svg>
                             </span>
                             <span className="flex justify-between items-center">
-                              <span className="flex gap-2 items-center" onClick={async () => await signOut(auth)}>
+                              <span
+                                className="flex gap-2 items-center"
+                                onClick={async () => await signOut(auth)}
+                              >
                                 <svg
                                   width="18"
                                   height="18"
@@ -461,54 +537,75 @@ const Home = () => {
               </span>
             </div>
             <div className="hero-sec-1-center">
-
-            <Row className="w-full" gutter={[20, 20]}>
-            <Col xs={24} md={6}>
-              <div className="form-field">
-                <span>From - To</span>
-                <select style={{border:"none",outline:"none"}} onChange={(e) => console.log("working")} name="" id="" className='w-full'>
-                  <option value="lahore-karachi">Lahore - Karachi</option>
-                  <option value="karachi-sudia">Karachi - Sudia Arabia</option>
-                  <option value="turkey-karachi">Turkey - Karachi</option>
-                  <option value="dubai-islamabad">Dubai - Islamabad</option>
-                </select>
-              </div>
-            </Col>
-            <Col  xs={24} md={6}>
-              <div className="form-field">
-                <span>Trip</span>
-                <select style={{border:"none",outline:"none"}} onChange={(e) => console.log("working")} name="" id="" className='w-full'>
-                  <option value="return">Return</option>
-                  <option value="oneway">One Way</option>
-                  <option value="Roundtrip">Round Trip</option>
-                  <option value="multicity">Multicity</option>
-                </select>
-              </div>
-            </Col>
-            <Col xs={24} md={6}>
-              <div className="form-field">
-                <span>Depart- Return</span>
-                <input
-                  type="date"
-                  // onChange={(e) => setDateExpire(e.target.value)}
-                  // value={dateExpire}
-                  placeholder="02/27"
-                />
-              </div>
-            </Col>
-            <Col  xs={24} md={6}>
-              <div className="form-field">
-                <span>Pessenger - Class</span>
-                <select style={{border:"none",outline:"none"}} onChange={(e) => console.log("working")} name="" id="" className='w-full'>
-                  <option value="onepessengereconomy">1 Pessenger, Economy</option>
-                  <option value="onepessengereconomy">1 Pessenger, Economy</option>
-                  <option value="onepessengereconomy">1 Pessenger, Economy</option>
-                  <option value="onepessengereconomy">1 Pessenger, Economy</option>
-                </select>
-              </div>
-            </Col>
-          </Row>
-
+              <Row className="w-full" gutter={[20, 20]}>
+                <Col xs={24} md={6}>
+                  <div className="form-field">
+                    <span>From - To</span>
+                    <select
+                      style={{ border: "none", outline: "none" }}
+                      onChange={(e) => console.log("working")}
+                      name=""
+                      id=""
+                      className="w-full"
+                    >
+                      <option value="lahore-karachi">Lahore - Karachi</option>
+                      <option value="karachi-sudia">
+                        Karachi - Sudia Arabia
+                      </option>
+                      <option value="turkey-karachi">Turkey - Karachi</option>
+                      <option value="dubai-islamabad">Dubai - Islamabad</option>
+                    </select>
+                  </div>
+                </Col>
+                <Col xs={24} md={6}>
+                  <div className="form-field">
+                    <span>Trip</span>
+                    <select
+                      style={{ border: "none", outline: "none" }}
+                      onChange={(e) => console.log("working")}
+                      name=""
+                      id=""
+                      className="w-full"
+                    >
+                      <option value="return">Return</option>
+                      <option value="oneway">One Way</option>
+                      <option value="Roundtrip">Round Trip</option>
+                      <option value="multicity">Multicity</option>
+                    </select>
+                  </div>
+                </Col>
+                <Col xs={24} md={6}>
+                  <div className="form-field ">
+                    <span className="relative z-20">Depart- Return</span>
+                    <RangePicker style={{border:"none",padding:0}} renderExtraFooter={() => 'extra footer'} />
+                  </div>
+                </Col>
+                <Col xs={24} md={6}>
+                  <div className="form-field">
+                    <span>Pessenger - Class</span>
+                    <select
+                      style={{ border: "none", outline: "none" }}
+                      onChange={(e) => console.log("working")}
+                      name=""
+                      id=""
+                      className="w-full"
+                    >
+                      <option value="onepessengereconomy">
+                        1 Pessenger, Economy
+                      </option>
+                      <option value="onepessengereconomy">
+                        2 Pessenger, Economy
+                      </option>
+                      <option value="onepessengereconomy">
+                        3 Pessenger, Economy
+                      </option>
+                      <option value="onepessengereconomy">
+                        4 Pessenger, Economy
+                      </option>
+                    </select>
+                  </div>
+                </Col>
+              </Row>
             </div>
 
             <div className="hero-sec-1-end">
@@ -527,7 +624,9 @@ const Home = () => {
                     strokeWidth="0.046875"
                   />
                 </svg>
+                <Link to={"/listing"}>
                 Show Filghts
+                </Link>
               </button>
             </div>
           </div>
@@ -550,70 +649,18 @@ const Home = () => {
             </div>
 
             <div>
-              <Row gutter={["32px", "32px"]}>
-                <Col xs={24} md={8}>
+              <Row gutter={[32,32 ]} className="w-full">
+                {places.map((v, i) =>
+                (
+                  <Col className="mx-auto" key={i} xs={24} md={7}>
                   <SmallCard
-                    title="Istanbul. Turkey"
+                    title={v.title}
                     des="Flight - Hotel - Resort"
-                    img={SmallCardImg}
+                    img={v.image}
                   />
                 </Col>
-                <Col xs={24} md={8}>
-                  <SmallCard
-                    title="Istanbul. Turkey"
-                    des="Flight - Hotel - Resort"
-                    img={SmallCardImg}
-                  />
-                </Col>
-                <Col xs={24} md={8}>
-                  <SmallCard
-                    title="Istanbul. Turkey"
-                    des="Flight - Hotel - Resort"
-                    img={SmallCardImg}
-                  />
-                </Col>
-                <Col xs={24} md={8}>
-                  <SmallCard
-                    title="Istanbul. Turkey"
-                    des="Flight - Hotel - Resort"
-                    img={SmallCardImg}
-                  />
-                </Col>
-                <Col xs={24} md={8}>
-                  <SmallCard
-                    title="Istanbul. Turkey"
-                    des="Flight - Hotel - Resort"
-                    img={SmallCardImg}
-                  />
-                </Col>
-                <Col xs={24} md={8}>
-                  <SmallCard
-                    title="Istanbul. Turkey"
-                    des="Flight - Hotel - Resort"
-                    img={SmallCardImg}
-                  />
-                </Col>
-                <Col xs={24} md={8}>
-                  <SmallCard
-                    title="Istanbul. Turkey"
-                    des="Flight - Hotel - Resort"
-                    img={SmallCardImg}
-                  />
-                </Col>
-                <Col xs={24} md={8}>
-                  <SmallCard
-                    title="Istanbul. Turkey"
-                    des="Flight - Hotel - Resort"
-                    img={SmallCardImg}
-                  />
-                </Col>
-                <Col xs={24} md={8}>
-                  <SmallCard
-                    title="Istanbul. Turkey"
-                    des="Flight - Hotel - Resort"
-                    img={SmallCardImg}
-                  />
-                </Col>
+                )
+                )}
               </Row>
             </div>
           </div>
@@ -622,7 +669,7 @@ const Home = () => {
         {/* Section 2 part 2*/}
         <div className="section mb-10">
           <div className="section-content">
-            <div className="flex justify-center ">
+            <div className="flex justify-center">
               <Row gutter={["36px", "24px"]} className="w-full">
                 <Col md={12} xs={24} className="flex justify-center">
                   <FlashCard

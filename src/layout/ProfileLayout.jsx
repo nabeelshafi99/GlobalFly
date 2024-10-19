@@ -1,7 +1,7 @@
 import Footer from "../components/footer/Footer";
 import Header from "../components/header/Header";
 import { FaUser } from "react-icons/fa";
-import "./profileLayout.scss";
+import "./profilelayout.scss";
 import { useContext, useEffect, useState } from "react";
 import { UserProvider } from "../context/UserContext";
 import { Outlet, useNavigate } from "react-router-dom";
@@ -182,7 +182,7 @@ const ProfileLayout = () => {
               Ticket/Booking
             </div>
             <span className="divider"></span>
-            <div onClick={() => handleClick("paymentmethod")}>
+            <div onClick={() => handleClick("payment")}>
               Payment methods
             </div>
           </div>

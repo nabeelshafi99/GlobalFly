@@ -2,26 +2,26 @@ import { Col, Row } from "antd";
 import ListingCardImg from "../../assets/images/listing-card.png";
 import "./hotelListingCard.scss";
 
-const HotelListingCard = () => {
+const HotelListingCard = ({hotel,image,location,price,ratings,reviews,stars,amenities}) => {
   return (
     <div className="flex gap-2 justify-center p-5 bg-white">
       <Row gutter={[20, 20]} className="w-full">
         <Col xs={24} md={6}>
           <div>
-            <img className="w-full" src={ListingCardImg} alt="" />
+            <img className="w-full" src={image} alt="" />
           </div>
         </Col>
         <Col xs={24} md={18} className="flex flex-col gap-2">
           <div className="listing-card-content">
             <span className="text-2xl font-bold">
-            CVK Park Bosphorus Hotel Istanbul
+            {hotel}
             </span>
             <span className="listing-card-top-row-right">
               <span className="listing-card-top-row-right-title">
                 starting from
               </span>
               <span className="listing-card-top-row-right-text">
-                $104/night
+                ${price}/night
               </span>
             </span>
           </div>
@@ -43,7 +43,7 @@ const HotelListingCard = () => {
                     />
                   </svg>
                 </span>
-                <span>Gümüssuyu Mah. Inönü Cad. No:8, Istanbul 34437</span>
+                <span>{location}</span>
               </div>
             </div>
             <div className="listing-card-center-content">
@@ -109,10 +109,10 @@ const HotelListingCard = () => {
             </div>
             <div className="listing-card-center-content">
               <span className="flex gap-5 items-center">
-                <span className="border py-1 px-3">4.2</span>
+                <span className="border py-1 px-3">{ratings}</span>
                 <span className="flex gap-3">
                   <span className="listing-rating-text">Very Good</span>
-                  <span className="listing-rating-review">54 reviews</span>
+                  <span className="listing-rating-review">{reviews} reviews</span>
                 </span>
               </span>
             </div>

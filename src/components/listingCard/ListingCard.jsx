@@ -2,35 +2,45 @@ import { Col, Row } from "antd";
 import ListingCardImg from "../../assets/images/listing-card.png";
 import "./listingCard.scss";
 
-const ListingCard = () => {
+const ListingCard = ({
+  airline,
+  image,
+  departure_time,
+  arrival_time,
+  duration,
+  route,
+  price,
+  reviews,
+  rating,
+}) => {
   return (
     <div className="flex gap-2 justify-center p-5 bg-white">
-      <Row gutter={[20,20]} className="w-full">
+      <Row gutter={[20, 20]} className="w-full">
         <Col xs={24} md={6}>
           <div>
-            <img className="w-full" src={ListingCardImg} alt="" />
+            <img className="w-full" src={image} alt="" />
           </div>
         </Col>
         <Col xs={24} md={18} className="flex flex-col gap-2">
           <div className="listing-card-content">
             <span className="listing-content-top-left">
-              <span className="listing-rating">4.2</span>
+              <span className="listing-rating">{rating}</span>
               <span className="flex gap-3">
                 <span className="listing-rating-text">Very Good</span>
-                <span className="listing-rating-review">54 reviews</span>
+                <span className="listing-rating-review">{reviews} Reviews</span>
               </span>
             </span>
 
             <span className="listing-card-top-row-right">
-              <span className="listing-card-top-row-right-title">starting from</span>
-              <span className="listing-card-top-row-right-text">$ 104</span>
+              <span className="listing-card-top-row-right-title">
+                starting from
+              </span>
+              <span className="listing-card-top-row-right-text">{price}</span>
             </span>
           </div>
 
           <div className="flex flex-col gap-4 mb-4">
-
             <div className="listing-card-center-content">
-
               <div>
                 <input type="checkbox" />
               </div>
@@ -38,23 +48,22 @@ const ListingCard = () => {
               <div className="listing-card-center-right-content">
                 <div className="listing-card-center-content-left">
                   <div>
-                    <div className="listing-content-card-title">12:00 pm</div>
-                    <div className="listing-content-card-subtitle">Emirates</div>
+                    <div className="listing-content-card-title">{departure_time}</div>
+                    <div className="listing-content-card-subtitle">
+                      {airline}
+                    </div>
                   </div>
                   <div className="listing-content-card-title">-</div>
-                  <div className="listing-content-card-title">01:28 pm</div>
+                  <div className="listing-content-card-title">{arrival_time}</div>
                 </div>
                 <div className="listing-content-card-title">non stop</div>
                 <div>
-                  <div className="listing-content-card-title">2h 28m</div>
-                  <div className="listing-content-card-subtitle">EWR-BNA</div>
+                  <div className="listing-content-card-title">{duration}</div>
+                  <div className="listing-content-card-subtitle">{route}</div>
                 </div>
-
               </div>
-
             </div>
             <div className="listing-card-center-content">
-
               <div>
                 <input type="checkbox" />
               </div>
@@ -62,22 +71,21 @@ const ListingCard = () => {
               <div className="listing-card-center-right-content">
                 <div className="listing-card-center-content-left">
                   <div>
-                    <div className="listing-content-card-title">12:00 pm</div>
-                    <div className="listing-content-card-subtitle">Emirates</div>
+                    <div className="listing-content-card-title">{departure_time}</div>
+                    <div className="listing-content-card-subtitle">
+                      {airline}
+                    </div>
                   </div>
                   <div className="listing-content-card-title">-</div>
-                  <div className="listing-content-card-title">01:28 pm</div>
+                  <div className="listing-content-card-title">{arrival_time}</div>
                 </div>
                 <div className="listing-content-card-title">non stop</div>
                 <div>
-                  <div className="listing-content-card-title">2h 28m</div>
-                  <div className="listing-content-card-subtitle">EWR-BNA</div>
+                  <div className="listing-content-card-title">{duration}</div>
+                  <div className="listing-content-card-subtitle">{route}</div>
                 </div>
-
               </div>
-
             </div>
-
           </div>
 
           <div className="mb-5 filter-divider"></div>
