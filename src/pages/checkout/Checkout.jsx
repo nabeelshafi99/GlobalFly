@@ -8,8 +8,7 @@ const Checkout = () => {
   const { id } = useParams();
   const data = flightData[id - 1];
   const handleClick = (id) => {
-    navigate(`/flow/download/:${id}`)
-      console.log("handle Click",id);
+    navigate(`/flow/download/${id}`)
   }
   return (
     <>
