@@ -3,6 +3,9 @@ import ListingCardImg from "../../assets/images/listing-card.png";
 import "./listingCard.scss";
 
 const ListingCard = ({
+  btnTitle,
+  id,
+  onClick,
   airline,
   image,
   departure_time,
@@ -109,10 +112,11 @@ const ListingCard = ({
               </svg>
             </button>
             <button
+            onClick={() => onClick(id)}
               className="w-full border-0"
               style={{ height: "48px", backgroundColor: "#8DD3BB" }}
             >
-              View Deals
+              {btnTitle || "View Deals"}
             </button>
           </div>
         </Col>

@@ -1,0 +1,15 @@
+@import "../../css-config/mixins.scss";
+@import "../../css-config/color.scss";
+@import "../../css-config/font.scss";
+
+
+
+.main-box{
+    font-family: $font-montserrat;
+    margin: 30px auto;
+    max-width: calc(100% - 20px);
+    @include md{
+        max-width: 1400px;
+
+    }
+}

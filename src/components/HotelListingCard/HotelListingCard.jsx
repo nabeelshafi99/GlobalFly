@@ -2,7 +2,7 @@ import { Col, Row } from "antd";
 import ListingCardImg from "../../assets/images/listing-card.png";
 import "./hotelListingCard.scss";
 
-const HotelListingCard = ({hotel,image,location,price,ratings,reviews,stars,amenities}) => {
+const HotelListingCard = ({id,onClick ,hotel,image,location,price,ratings,reviews,stars,amenities}) => {
   return (
     <div className="flex gap-2 justify-center p-5 bg-white">
       <Row gutter={[20, 20]} className="w-full">
@@ -139,6 +139,7 @@ const HotelListingCard = ({hotel,image,location,price,ratings,reviews,stars,amen
               </svg>
             </button>
             <button
+            onClick={() => onClick(id)}
               className="w-full border-0"
               style={{ height: "48px", backgroundColor: "#8DD3BB" }}
             >

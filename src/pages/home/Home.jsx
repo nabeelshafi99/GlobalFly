@@ -15,9 +15,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { UserProvider } from "../../context/UserContext";
 import { signOut } from "firebase/auth";
 import { auth } from "../../utils/firebase";
-import React from 'react';
-import { DatePicker, Space } from 'antd';
-const { RangePicker } = DatePicker;
+import React from "react";
+import { DatePicker } from "antd";
+import "antd/dist/reset.css"; // Import Ant Design styles
 
 // Places Images
 import Place01 from "../../assets/images/place01.jpg";
@@ -29,6 +29,8 @@ import Place06 from "../../assets/images/place06.jpg";
 import Place07 from "../../assets/images/place07.jpg";
 import Place08 from "../../assets/images/place08.jpg";
 import Place09 from "../../assets/images/place09.jpg";
+
+const { RangePicker } = DatePicker;
 
 const places = [
   {
@@ -86,6 +88,14 @@ const Home = () => {
   const [profilePopup, setProfilePopup] = useState(false);
   const navigate = useNavigate();
 
+  // searching
+  const [from, setFrom] = useState(null);
+  const [to, setTo] = useState(null);
+  const [tripType, setTripType] = useState(null);
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+  const [classType, setClassType] = useState(null);
+
   const handleScroll = () => {
     const scroll = window.scrollY;
     if (scroll > 200) {
@@ -109,6 +119,23 @@ const Home = () => {
   const handleClick = (link) => {
     navigate(link);
   };
+  const handleSubmit = () => {
+     const queryString = `from=${from}&to=${to}&startDate=${startDate}&endDate=${endDate}&classType=${classType}`;
+ 
+     navigate(`/listing?${queryString}`);
+  };
+  const handleDateChange = (dates) => {
+    if (dates) {
+      const startDate = dates[0];
+      const endDate = dates[1];
+      setStartDate(startDate);
+      setEndDate(endDate);
+    } else {
+      setStartDate(null);
+      setEndDate(null);
+    }
+  };
+
   return (
     <>
       <div className={`header-main ${scroll && "sticky top-0 apply-bg"}`}>
@@ -127,9 +154,7 @@ const Home = () => {
                   fill={scroll ? "#112211" : "#fff"}
                 />
               </svg>
-              <Link to={"/listing"}>
-              Find Flight
-              </Link>
+              <Link to={"/listing"}>Find Flight</Link>
             </li>
             <li onClick={() => handleClick("/flow/hotel")}>
               <svg
@@ -144,9 +169,7 @@ const Home = () => {
                   fill={scroll ? "#112211" : "#fff"}
                 />
               </svg>
-              <Link to={"/listing/hotel"}>
-              Find Stays
-              </Link>
+              <Link to={"/listing/hotel"}>Find Stays</Link>
             </li>
           </ul>
           <div className="header-center flex" onClick={() => handleClick("/")}>
@@ -258,7 +281,7 @@ const Home = () => {
               </button>
             </span>
             <span className={`with-login ${user ? "flex" : "hidden"}`}>
-              {/* <span className="favourite">
+              <span className="favourite">
                 <svg
                   width="20"
                   height="19"
@@ -272,7 +295,7 @@ const Home = () => {
                   />
                 </svg>
                 Favourite
-              </span> */}
+              </span>
               <span className="divider-right"></span>
               <span className="avatar-main">
                 <span className="avatar">
@@ -543,11 +566,13 @@ const Home = () => {
                     <span>From - To</span>
                     <select
                       style={{ border: "none", outline: "none" }}
-                      onChange={(e) => console.log("working")}
-                      name=""
-                      id=""
+                      onChange={(e) => {
+                        setFrom(e.target.value.split("-")[0]);
+                        setTo(e.target.value.split("-")[1]);
+                      }}
                       className="w-full"
                     >
+                      <option value={null}>Select From - To</option>
                       <option value="lahore-karachi">Lahore - Karachi</option>
                       <option value="karachi-sudia">
                         Karachi - Sudia Arabia
@@ -562,11 +587,10 @@ const Home = () => {
                     <span>Trip</span>
                     <select
                       style={{ border: "none", outline: "none" }}
-                      onChange={(e) => console.log("working")}
-                      name=""
-                      id=""
+                      onChange={(e) => setTripType(e.target.value)}
                       className="w-full"
                     >
+                      <option value={null}>Select Class</option>
                       <option value="return">Return</option>
                       <option value="oneway">One Way</option>
                       <option value="Roundtrip">Round Trip</option>
@@ -577,7 +601,12 @@ const Home = () => {
                 <Col xs={24} md={6}>
                   <div className="form-field ">
                     <span className="relative z-20">Depart- Return</span>
-                    <RangePicker style={{border:"none",padding:0}} renderExtraFooter={() => 'extra footer'} />
+                    <RangePicker
+                      dropdownClassName="single-calendar"
+                      onChange={handleDateChange}
+                      style={{ border: "none", padding: 0 }}
+                      renderExtraFooter={() => "extra footer"}
+                    />
                   </div>
                 </Col>
                 <Col xs={24} md={6}>
@@ -585,23 +614,13 @@ const Home = () => {
                     <span>Pessenger - Class</span>
                     <select
                       style={{ border: "none", outline: "none" }}
-                      onChange={(e) => console.log("working")}
-                      name=""
-                      id=""
+                      onChange={(e) => setClassType(e.target.value)}
                       className="w-full"
                     >
-                      <option value="onepessengereconomy">
-                        1 Pessenger, Economy
-                      </option>
-                      <option value="onepessengereconomy">
-                        2 Pessenger, Economy
-                      </option>
-                      <option value="onepessengereconomy">
-                        3 Pessenger, Economy
-                      </option>
-                      <option value="onepessengereconomy">
-                        4 Pessenger, Economy
-                      </option>
+                      <option value={null}>Select Class</option>
+                      <option value="economy">Economy</option>
+                      <option value="executive">Executive</option>
+                      <option value="business">Business</option>
                     </select>
                   </div>
                 </Col>
@@ -609,7 +628,7 @@ const Home = () => {
             </div>
 
             <div className="hero-sec-1-end">
-              <button className="hero-sec-1-btn btn-v2">
+              <button onClick={handleSubmit} className="hero-sec-1-btn btn-v2">
                 <svg
                   width="16"
                   height="16"
@@ -624,9 +643,7 @@ const Home = () => {
                     strokeWidth="0.046875"
                   />
                 </svg>
-                <Link to={"/listing"}>
                 Show Filghts
-                </Link>
               </button>
             </div>
           </div>
@@ -649,18 +666,16 @@ const Home = () => {
             </div>
 
             <div>
-              <Row gutter={[32,32 ]} className="w-full">
-                {places.map((v, i) =>
-                (
+              <Row gutter={[32, 32]} className="w-full">
+                {places.map((v, i) => (
                   <Col className="mx-auto" key={i} xs={24} md={7}>
-                  <SmallCard
-                    title={v.title}
-                    des="Flight - Hotel - Resort"
-                    img={v.image}
-                  />
-                </Col>
-                )
-                )}
+                    <SmallCard
+                      title={v.title}
+                      des="Flight - Hotel - Resort"
+                      img={v.image}
+                    />
+                  </Col>
+                ))}
               </Row>
             </div>
           </div>

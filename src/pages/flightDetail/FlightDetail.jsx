@@ -1,13 +1,27 @@
+import { useNavigate, useParams } from "react-router-dom";
 import "./fligthDetail.scss";
+import flightData from "../../data/FlightData";
+import { Col, Row } from "antd";
+import ListingCard from "../../components/listingCard/ListingCard";
 
 const FlightDetail = () => {
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const data = flightData[id - 1];
+
+  const BookNow = (id) => {
+    navigate(`/flow/checkout/${id}`);
+  }
+
+  const handleClick = (id) => {
+    navigate(`/flow/flight/${id}`);
+  };
+
   return (
     <div className="main-box">
       <div className="flex justify-between">
         <div>
-          <div className="text-sm md:text-xl font-bold">
-            Emirates A380 Airbus
-          </div>
+          <div className="text-sm md:text-xl font-bold">{data.airline}</div>
           <div>
             <div className="flex  gap-3 items-center my-2">
               <span>
@@ -24,21 +38,23 @@ const FlightDetail = () => {
                   />
                 </svg>
               </span>
-              <span className="text-xs md:text-sm">
-                Gümüssuyu Mah. Inönü Cad. No:8, Istanbul 34437
-              </span>
+              <span className="text-xs md:text-sm">{data.location}</span>
             </div>
           </div>
           <div className="flex flex-1 items-center gap-2">
-            <span className="border py-1 px-3">4.2</span>
+            <span className="border py-1 px-3">{data.rating}</span>
             <span className="flex md:gap-3 items-center flex-col md:flex-row ">
               <span className="listing-rating-text">Very Good</span>
-              <span className="listing-rating-review">54 reviews</span>
+              <span className="listing-rating-review">
+                {data.reviews} reviews
+              </span>
             </span>
           </div>
         </div>
         <div className="flex flex-col justify-center items-end">
-          <div className="text-xl md:text-2xl font-bold mb-2">$240</div>
+          <div className="text-xl md:text-2xl font-bold mb-2">
+            $ {data.price}
+          </div>
           <div className="flex flex-col md:flex-row gap-3 items-center">
             <span className="flex gap-1">
               <button className="border py-2 px-4">
@@ -76,6 +92,7 @@ const FlightDetail = () => {
               </button>
             </span>
             <button
+            onClick={() => BookNow(data.id)}
               style={{ height: "35px", background: "#8DD3BB" }}
               className="border px-4 text-xs"
             >
@@ -86,9 +103,31 @@ const FlightDetail = () => {
       </div>
 
       <div>
-        <div>
-            <img src="" alt="" />
+        <div style={{width:"100%", height:300 }} className="bg-white flex mt-4 justify-center p-5">
+          <img src={data.image} className="h-full object-cover" alt="" />
         </div>
+      </div>
+
+      <div className="my-5">
+        <Row>
+          {flightData.map((v, i) => (
+            <Col key={i} className="my-2 bg-white" md={24}>
+              <ListingCard
+                onClick={handleClick}
+                airline={v.airline}
+                id={v.id}
+                image={v.image}
+                departure_time={v.departure_time}
+                arrival_time={v.arrival_time}
+                duration={v.duration}
+                route={v.route}
+                price={`$ ${v.price}`}
+                reviews={v.reviews}
+                rating={v.rating}
+              />
+            </Col>
+          ))}
+        </Row>
       </div>
     </div>
   );

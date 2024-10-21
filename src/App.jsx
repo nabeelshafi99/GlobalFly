@@ -16,6 +16,8 @@ import PatmentMethod from "./pages/profile/PaymentMethod";
 import TicketBooking from "./pages/profile/TicketBooking";
 import ListingLayout from "./layout/ListingLayout";
 import HotelListing from "./pages/hotelListing/HotelListing";
+import Checkout from "./pages/checkout/Checkout.jsx";
+import Ticket from "./pages/ticket/Ticket.jsx";
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
           <Route path="/flow" element={<FlightFlow />} />
           <Route path="/flow/hotel" element={<HotelFLow />} />
           <Route path="/flow/flight/:id" element={<FlightDetail />} /> 
+          <Route path="/flow/checkout/:id" element={<Checkout />} /> 
+          <Route path="/flow/download/:id" element={<Ticket />} /> 
         </Route>
         <Route path="/auth" element={<AuthLayout  />}>
           <Route path="/auth" element={<Login />} />
