@@ -13,7 +13,7 @@ const ProfileLayout = () => {
   const navigate = useNavigate();
   const { user, setUser } = useContext(UserProvider);
   const [isLoading, setIsLoading] = useState(false);
-  const [accountInfo, setAccountInfo] = useState(null);
+  const [accountInfo, setAccountInfo] = useState("");
   const [change, setChange] = useState(false);
 
   useEffect(() => {
