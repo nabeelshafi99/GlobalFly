@@ -602,7 +602,7 @@ const Home = () => {
                   <div className="form-field ">
                     <span className="relative z-20">Depart- Return</span>
                     <RangePicker
-                      dropdownClassName="single-calendar"
+                      popupClassName="single-calendar"
                       onChange={handleDateChange}
                       style={{ border: "none", padding: 0 }}
                       renderExtraFooter={() => "extra footer"}
