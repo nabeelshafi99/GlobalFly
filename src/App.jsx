@@ -39,7 +39,7 @@ function App() {
         </Route>
         <Route path="/profile" element={<ProfileLayout />}>
           <Route path="/profile" element={<Account />} />
-          <Route path="/profile/paymentmethod" element={<PatmentMethod />} />
+          <Route path="/profile/payment" element={<PatmentMethod />} />
           <Route path="/profile/ticketbooking" element={<TicketBooking />} />
         </Route>
         <Route path="/listing" element={<ListingLayout />}>
