@@ -213,7 +213,7 @@ const Header = () => {
                             />
                           </svg>
                         </span>
-                        <span className="flex justify-between items-center" onClick={() => handleClick("/profile/paymentmethod")}>
+                        <span className="flex justify-between items-center" onClick={() => handleClick("/profile/payment")}>
                           <span className="flex gap-2 items-center">
                             <svg
                               width="18"
